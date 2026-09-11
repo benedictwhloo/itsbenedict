@@ -22,7 +22,7 @@ export default function Hero() {
         <SplitReveal
           as="h1"
           immediate
-          className="text-4xl font-semibold tracking-tight sm:text-6xl text-[rgba(17,17,17,0.9)]"
+          className="text-4xl font-semibold tracking-tight sm:text-6xl text-[rgba(17,17,17,0.9)] font-bbh-bartle"
         >
           {site.name}
         </SplitReveal>

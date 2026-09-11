@@ -15,3 +15,6 @@ All notable changes to this project will be documented in this file.
 - Updated SpotlightCard.tsx to use dark borders and red spotlight
 - Updated all section components (Hero, Projects, Experience, Contact, Writing, About) to use dark text and appropriate borders on light background
 - Updated button colors and text colors throughout to match light theme
+- Changed font of name in hero section to BBH Bartle
+- Changed Vanta background from GLOBE to NET for more triangular geometric shape
+- Updated type definitions for Vanta NET effect

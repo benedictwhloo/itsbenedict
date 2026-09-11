@@ -20,7 +20,7 @@ function getReducedMotionServerSnapshot() {
 }
 
 /**
- * Vanta GLOBE — a dark, geometric wireframe sphere behind the hero section.
+ * Vanta NET — a dark, geometric wireframe network behind the hero section.
  * Loaded client-side only (WebGL needs the DOM), and skipped entirely for
  * users who prefer reduced motion.
  */
@@ -38,10 +38,10 @@ export default function VantaBackground() {
 
     let cancelled = false;
 
-    import("vanta/dist/vanta.globe.min").then((mod) => {
+    import("vanta/dist/vanta.net.min").then((mod) => {
       if (cancelled || !containerRef.current) return;
-      const GLOBE = mod.default;
-      effectRef.current = GLOBE({
+      const NET = mod.default;
+      effectRef.current = NET({
         el: containerRef.current,
         THREE,
         mouseControls: true,
