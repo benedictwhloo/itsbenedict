@@ -51,9 +51,9 @@ export default function VantaBackground() {
         minWidth: 200.0,
         scale: 1.0,
         scaleMobile: 1.0,
-        color: 0x7dd3fc,
-        color2: 0xa78bfa,
-        backgroundColor: 0x0a0a0f,
+        color: 0xfc7d7d,
+        color2: 0xfed7d7,
+        backgroundColor: 0xf8f9fa,
         size: 1.1,
       });
     });
@@ -71,7 +71,7 @@ export default function VantaBackground() {
     return (
       <div
         aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(125,211,252,0.15),transparent_60%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(252,125,125,0.15),transparent_60%)]"
       />
     );
   }

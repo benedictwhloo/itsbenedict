@@ -14,7 +14,7 @@ export default function GradientText({
 }) {
   return (
     <span
-      className={`bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x bg-gradient-to-r from-sky-300 via-violet-300 to-sky-300 ${className}`}
+      className={`bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x bg-gradient-to-r from-gray-600 via-red-500 to-gray-600 ${className}`}
     >
       {children}
     </span>

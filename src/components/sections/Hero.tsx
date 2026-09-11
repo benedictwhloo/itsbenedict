@@ -13,35 +13,35 @@ export default function Hero() {
       <VantaBackground />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0f]"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(255,255,255,0.3)]"
       />
       <div className="relative mx-auto w-full max-w-5xl px-6 py-32">
-        <p className="mb-4 text-sm uppercase tracking-[0.2em] text-white/50">
+        <p className="mb-4 text-sm uppercase tracking-[0.2em] text-[rgba(17,17,17,0.5)]">
           {site.location}
         </p>
         <SplitReveal
           as="h1"
           immediate
-          className="text-4xl font-semibold tracking-tight sm:text-6xl"
+          className="text-4xl font-semibold tracking-tight sm:text-6xl text-[rgba(17,17,17,0.9)]"
         >
           {site.name}
         </SplitReveal>
-        <h2 className="mt-4 text-xl text-white/70 sm:text-2xl">
+        <h2 className="mt-4 text-xl text-[rgba(17,17,17,0.7)] sm:text-2xl">
           <GradientText>{site.title}</GradientText>
         </h2>
-        <p className="mt-6 max-w-xl text-base text-white/60 sm:text-lg">
+        <p className="mt-6 max-w-xl text-base text-[rgba(17,17,17,0.6)] sm:text-lg">
           {site.tagline}
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <MagnetButton
             href="#projects"
-            className="bg-white text-[#0a0a0f] hover:bg-white/90"
+            className="bg-white text-[#111111] hover:bg-white/90"
           >
             See my work
           </MagnetButton>
           <MagnetButton
             href={`mailto:${site.email}`}
-            className="border border-white/20 text-white hover:border-white/40"
+            className="border border-[rgba(17,17,17,0.2)] text-[#111111] hover:border-[rgba(17,17,17,0.4)]"
           >
             Get in touch
           </MagnetButton>

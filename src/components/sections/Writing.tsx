@@ -7,15 +7,15 @@ export default function Writing() {
       <SplitReveal className="text-3xl font-semibold tracking-tight sm:text-4xl">
         {writing.heading}
       </SplitReveal>
-      <p className="mt-4 max-w-2xl text-white/60">{writing.intro}</p>
-      <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
+      <p className="mt-4 max-w-2xl text-[rgba(17,17,17,0.6)]">{writing.intro}</p>
+      <div className="mt-10 divide-y divide-[rgba(17,17,17,0.1)] border-y border-[rgba(17,17,17,0.1)]">
         {writing.placeholderPosts.map((post) => (
           <div key={post.title} className="flex items-baseline justify-between py-5">
             <div>
               <h3 className="font-medium">{post.title}</h3>
-              <p className="text-sm text-white/50">{post.excerpt}</p>
+              <p className="text-sm text-[rgba(17,17,17,0.5)]">{post.excerpt}</p>
             </div>
-            <span className="shrink-0 pl-4 text-sm text-white/40">{post.date}</span>
+            <span className="shrink-0 pl-4 text-sm text-[rgba(17,17,17,0.4)]">{post.date}</span>
           </div>
         ))}
       </div>

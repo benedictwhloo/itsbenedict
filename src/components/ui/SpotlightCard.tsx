@@ -31,7 +31,7 @@ export default function SpotlightCard({
     <div
       ref={ref}
       onMouseMove={handleMove}
-      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-white/20 ${className}`}
+      className={`group relative overflow-hidden rounded-2xl border border-[rgba(17,17,17,0.1)] bg-white/[0.03] p-6 transition-colors hover:border-[rgba(17,17,17,0.2)] ${className}`}
       style={
         {
           "--spot-x": "50%",
@@ -44,7 +44,7 @@ export default function SpotlightCard({
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background:
-            "radial-gradient(400px circle at var(--spot-x) var(--spot-y), rgba(125,211,252,0.12), transparent 65%)",
+            "radial-gradient(400px circle at var(--spot-x) var(--spot-y), rgba(252,125,125,0.12), transparent 65%)",
         }}
       />
       <div className="relative">{children}</div>

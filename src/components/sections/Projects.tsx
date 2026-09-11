@@ -12,12 +12,12 @@ export default function Projects() {
         {projects.map((project) => (
           <SpotlightCard key={project.title}>
             <h3 className="text-lg font-medium">{project.title}</h3>
-            <p className="mt-2 text-sm text-white/60">{project.blurb}</p>
+            <p className="mt-2 text-sm text-[rgba(17,17,17,0.6)]">{project.blurb}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/50"
+                  className="rounded-full border border-[rgba(17,17,17,0.1)] px-3 py-1 text-xs text-[rgba(17,17,17,0.5)]"
                 >
                   {tag}
                 </span>
@@ -26,7 +26,7 @@ export default function Projects() {
             {project.href && (
               <a
                 href={project.href}
-                className="mt-4 inline-block text-sm text-sky-300 hover:underline"
+                className="mt-4 inline-block text-sm text-red-500 hover:underline"
               >
                 View →
               </a>
