@@ -30,7 +30,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const lenis = new Lenis({
       autoRaf: false,
       syncTouch: true,
-      duration: 1.1,
+      duration: 0.6,
       easing: (t: number) => 1 - Math.pow(1 - t, 3),
     });
     lenisRef.current = lenis;

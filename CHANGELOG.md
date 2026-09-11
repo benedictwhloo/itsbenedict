@@ -18,3 +18,4 @@ All notable changes to this project will be documented in this file.
 - Changed font of name in hero section to BBH Bartle
 - Changed Vanta background from GLOBE to NET for more triangular geometric shape
 - Updated type definitions for Vanta NET effect
+- Increased smooth scroll speed by reducing Lenis duration from 1.1 to 0.6
