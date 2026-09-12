@@ -1,51 +1,107 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #111111;
-}
+@layer base {
+  :root {
+    /* Design Framework Palette - Grayscale/Charcoal Only */
+    --background: 248 248 244; /* #f5f5f4 - page background */
+    --foreground: 28 28 30; /* #1c1c1e - body text (dark grey, not pure black) */
+    --secondary: 63 63 70; /* #3f3f46 - accent (dark charcoal grey) */
+    --muted-foreground: 14 14 15; /* black/50 approx for muted text */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  /* Using a system stack so the build doesn't depend on reaching Google
-     Fonts. If you want Geist (or another Google font) back, re-add
-     next/font/google in layout.tsx — Vercel's build servers have normal
-     network access, this sandbox's didn't. */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto,
-    sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
-}
-
-html {
-  scroll-behavior: auto;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-}
-
-::selection {
-  background: rgba(255, 0, 0, 0.35);
-}
-
-@keyframes gradient-x {
-  0%,
-  100% {
-    background-position: 0% 50%;
+    --card: 248 248 244;
+    --card-foreground: 28 28 30;
+    --popover: 248 248 244;
+    --popover-foreground: 28 28 30;
+    --primary: 28 28 30;
+    --primary-foreground: 248 248 244;
+    --accent: 63 63 70; /* #3f3f46 */
+    --accent-foreground: 248 248 244;
+    --destructive: 28 28 30;
+    --destructive-foreground: 248 248 244;
+    --border: 0 0% 0% / 0.1; /* black/10 */
+    --input: 0 0% 0% / 0.1;
+    --ring: 28 28 30;
+    --radius: 0.5rem;
   }
-  50% {
-    background-position: 100% 50%;
+
+  .dark {
+    /* Dark mode - inverted grayscale */
+    --background: 28 28 30; /* #1c1c1e */
+    --foreground: 248 248 244; /* #f5f5f4 */
+    --card: 28 28 30;
+    --card-foreground: 248 248 244;
+    --primary: 248 248 244;
+    --primary-foreground: 28 28 30;
+    --secondary: 63 63 70; /* #3f3f46 */
+    --secondary-foreground: 28 28 30;
+    --muted-foreground: 204 204 208; /* black/50 approx on dark */
+    --accent: 63 63 70; /* #3f3f46 */
+    --accent-foreground: 28 28 30;
+    --destructive: 248 248 244;
+    --destructive-foreground: 28 28 30;
+    --border: 255 255 255 / 0.1; /* white/10 for dark mode */
+    --input: 255 255 255 / 0.1;
+    --ring: 248 248 244;
+    --radius: 0.5rem;
   }
 }
 
-.animate-gradient-x {
-  animation: gradient-x 6s ease infinite;
+@layer base {
+  * {
+    @apply border-[hsl(var(--border))]/50;
+  }
+  body {
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  }
 }
 
-/* SplitText line wrappers need overflow hidden for the char reveal to clip cleanly */
-.split-line {
-  overflow: hidden;
+@layer utilities {
+  .animate-float-slow {
+    animation: floatSlow 6s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: floatMedium 4s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: floatFast 8s ease-in-out infinite;
+  }
+
+  @keyframes floatSlow {
+    0%, 100% {
+      transform: translateY(0px) scale(1) rotate(0deg);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translateY(-40px) scale(1.2) rotate(15deg);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes floatMedium {
+    0%, 100% {
+      transform: translateY(0px) scale(1) rotate(0deg);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateX(30px) translateY(-35px) scale(1.1) rotate(-12deg);
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes floatFast {
+    0%, 100% {
+      transform: translateY(0px) scale(1) rotate(0deg);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateY(-25px) translateX(-20px) scale(1) rotate(8deg);
+      opacity: 0.7;
+    }
+  }
 }

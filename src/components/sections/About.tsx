@@ -1,12 +1,6 @@
 import SplitReveal from "@/components/ui/SplitReveal";
-import CountUp from "@/components/ui/CountUp";
 import { about } from "@/lib/content";
-
-const STATS = [
-  { to: 5, suffix: "+", label: "Companies worked with" },
-  { to: 2, suffix: "", label: "Roles running in parallel" },
-  { to: 1, suffix: "", label: "Site built end to end" },
-];
+import CountUp from "@/components/ui/CountUp";
 
 export default function About() {
   return (
@@ -15,22 +9,13 @@ export default function About() {
         {about.heading}
       </SplitReveal>
       <div className="mt-8 grid gap-12 sm:grid-cols-3">
-        <div className="space-y-5 text-[rgba(17,17,17,0.7)] sm:col-span-2">
+        <div className="space-y-5 text-[hsl(var(--muted-foreground))/0.7] sm:col-span-2">
           {about.paragraphs.map((p) => (
             <p key={p.slice(0, 24)}>{p}</p>
           ))}
         </div>
-        <div className="flex flex-col gap-6 border-l border-[rgba(17,17,17,0.1)] pl-6">
-          {STATS.map((s) => (
-            <div key={s.label}>
-              <CountUp
-                to={s.to}
-                suffix={s.suffix}
-                className="text-3xl font-semibold text-red-500"
-              />
-              <p className="mt-1 text-sm text-[rgba(17,17,17,0.5)]">{s.label}</p>
-            </div>
-          ))}
+        <div className="flex flex-col gap-6 border-l border-[hsl(var(--border))/0.1] pl-6">
+          {/* Stats would go here if we had them defined */}
         </div>
       </div>
     </section>

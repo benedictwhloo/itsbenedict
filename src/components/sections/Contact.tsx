@@ -1,26 +1,28 @@
 import SplitReveal from "@/components/ui/SplitReveal";
-import MagnetButton from "@/components/ui/MagnetButton";
-import GradientText from "@/components/ui/GradientText";
-import { contact, site } from "@/lib/content";
+import { contact } from "@/lib/content";
 
 export default function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-5xl px-6 py-28 text-center">
+    <section id="contact" className="mx-auto max-w-5xl px-6 py-28">
       <SplitReveal className="text-3xl font-semibold tracking-tight sm:text-4xl">
         {contact.heading}
       </SplitReveal>
-      <p className="mx-auto mt-4 max-w-lg text-[rgba(17,17,17,0.6)]">{contact.blurb}</p>
-      <div className="mt-10">
-        <MagnetButton
-          href={`mailto:${site.email}`}
-          className="border border-[rgba(17,17,17,0.2)] px-8 py-4 text-lg hover:border-[rgba(17,17,17,0.4)]"
-        >
-          <GradientText>{site.email}</GradientText>
-        </MagnetButton>
+      <div className="mt-12 space-y-6">
+        <p className="max-w-xl text-[hsl(var(--muted-foreground))/0.6]">
+          {contact.blurb}
+        </p>
+        <div className="mt-6 flex items-center gap-4">
+          <a
+            href={`mailto:benedict@hey.com`}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[hsl(var(--border))/0.2] hover:border-[hsl(var(--border))/0.4] transition-all"
+          >
+            ✉️
+          </a>
+          <div className="flex-1 flex flex-wrap gap-4">
+            {/* Social links would go here if we had them defined */}
+          </div>
+        </div>
       </div>
-      <footer className="mt-24 text-sm text-[rgba(17,17,17,0.3)]">
-        © {new Date().getFullYear()} {site.name}
-      </footer>
     </section>
   );
 }
