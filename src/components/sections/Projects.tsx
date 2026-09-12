@@ -12,12 +12,12 @@ export default function Projects() {
         {projects.map((project) => (
           <SpotlightCard key={project.title}>
             <h3 className="text-lg font-medium">{project.title}</h3>
-            <p className="mt-2 text-sm text-[rgba(17,17,17,0.6)]">{project.blurb}</p>
+            <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))/0.6]">{project.blurb}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-[rgba(17,17,17,0.1)] px-3 py-1 text-xs text-[rgba(17,17,17,0.5)]"
+                  className="rounded-full border border-[hsl(var(--border))/0.1] px-3 py-1 text-xs text-[hsl(var(--muted-foreground))/0.5]"
                 >
                   {tag}
                 </span>

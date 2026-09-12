@@ -9,16 +9,16 @@ export default function Contact() {
       <SplitReveal className="text-3xl font-semibold tracking-tight sm:text-4xl">
         {contact.heading}
       </SplitReveal>
-      <p className="mx-auto mt-4 max-w-lg text-[rgba(17,17,17,0.6)]">{contact.blurb}</p>
+      <p className="mx-auto mt-4 max-w-lg text-[hsl(var(--muted-foreground))/0.6]">{contact.blurb}</p>
       <div className="mt-10">
         <MagnetButton
           href={`mailto:${site.email}`}
-          className="border border-[rgba(17,17,17,0.2)] px-8 py-4 text-lg hover:border-[rgba(17,17,17,0.4)]"
+          className="border border-[hsl(var(--border))/0.2] px-8 py-4 text-lg hover:border-[hsl(var(--border))/0.4]"
         >
           <GradientText>{site.email}</GradientText>
         </MagnetButton>
       </div>
-      <footer className="mt-24 text-sm text-[rgba(17,17,17,0.3)]">
+      <footer className="mt-24 text-sm text-[hsl(var(--muted-foreground))/0.3]">
         © {new Date().getFullYear()} {(() => {
           const [firstName, ...rest] = site.name.split(' ');
           const lastName = rest.join(' ');
