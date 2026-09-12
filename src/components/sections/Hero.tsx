@@ -30,6 +30,7 @@ export default function Hero() {
           as="h1"
           immediate
           className={`text-3xl font-semibold tracking-tight sm:text-5xl text-[rgba(17,17,17,0.9)] ${bbhBartle.className}`}
+        >
           {() => {
             const [firstName, ...rest] = site.name.split(' ');
             const lastName = rest.join(' ');
