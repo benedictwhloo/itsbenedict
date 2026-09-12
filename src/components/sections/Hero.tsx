@@ -4,7 +4,7 @@ import SplitReveal from "@/components/ui/SplitReveal";
 import GradientText from "@/components/ui/GradientText";
 import MagnetButton from "@/components/ui/MagnetButton";
 import { site } from "@/lib/content";
-import { bbhBartle } from "../../lib/fonts";
+import { bbhBartle } from "@/lib/fonts";
 
 export default function Hero() {
   return (
