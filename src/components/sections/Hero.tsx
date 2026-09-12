@@ -4,7 +4,7 @@ import SplitReveal from "@/components/ui/SplitReveal";
 import GradientText from "@/components/ui/GradientText";
 import MagnetButton from "@/components/ui/MagnetButton";
 import { site } from "@/lib/content";
-import { bbhBartle } from "../../lib/fonts";
+import { bbhBartle } from "@/lib/fonts";
 
 export default function Hero() {
   return (
@@ -31,16 +31,7 @@ export default function Hero() {
           immediate
           className={`text-3xl font-semibold tracking-tight sm:text-5xl text-[rgba(17,17,17,0.9)] ${bbhBartle.className}`}
         >
-          {(() => {
-            const [firstName, ...rest] = site.name.split(' ');
-            const lastName = rest.join(' ');
-            return (
-              <>
-                <span className="whitespace-nowrap">{firstName}</span><br />
-                <span className="whitespace-nowrap">{lastName}</span>
-              </>
-            );
-          })()}
+          {site.name}
         </SplitReveal>
         <h2 className="mt-4 text-xl text-[rgba(17,17,17,0.7)] sm:text-2xl">
           <GradientText>{site.title}</GradientText>
