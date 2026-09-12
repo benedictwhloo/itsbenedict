@@ -13,6 +13,7 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-screen items-center overflow-hidden"
     >
+      <GeometricField />
       <div className="absolute inset-0 -z-[1] overflow-hidden">
         <div className="hero-float-1 absolute w-28 h-28 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.08),transparent_70%)] rounded-full top-1/4 left-1/6 animate-float-slow"></div>
         <div className="hero-float-2 absolute w-24 h-24 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.06),transparent_70%)] rounded-full top-3/5 right-1/4 animate-float-medium"></div>
