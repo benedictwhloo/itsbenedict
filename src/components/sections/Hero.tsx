@@ -31,11 +31,11 @@ export default function Hero() {
           immediate
           className={`text-3xl font-semibold tracking-tight sm:text-5xl text-[rgba(17,17,17,0.9)] ${bbhBartle.className}`}
         >
-          {() => {
+          {(() => {
             const [firstName, ...rest] = site.name.split(' ');
             const lastName = rest.join(' ');
             return `${firstName}\n${lastName}`;
-          }()}
+          })()}
         </SplitReveal>
         <p className="mt-6 max-w-xl text-base text-[rgba(17,17,17,0.6)] sm:text-lg">
           {site.tagline}
