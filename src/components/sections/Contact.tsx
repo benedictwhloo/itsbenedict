@@ -19,7 +19,16 @@ export default function Contact() {
         </MagnetButton>
       </div>
       <footer className="mt-24 text-sm text-[rgba(17,17,17,0.3)]">
-        © {new Date().getFullYear()} {site.name}
+        © {new Date().getFullYear()} {(() => {
+          const [firstName, ...rest] = site.name.split(' ');
+          const lastName = rest.join(' ');
+          return (
+            <>
+              <span className="whitespace-nowrap">{firstName}</span><br />
+              <span className="whitespace-nowrap">{lastName}</span>
+            </>
+          );
+        })()}
       </footer>
     </section>
   );
