@@ -12,6 +12,8 @@ type SpotlightCardProps = {
  * Card with a soft radial "spotlight" that follows the cursor — a React
  * Bits staple, done here with a CSS custom property updated on pointer
  * move so no per-frame JS animation loop is needed.
+ *
+ * The glow is neutral (dark grey at low alpha) — never a tinted colour.
  */
 export default function SpotlightCard({
   children,
@@ -31,7 +33,7 @@ export default function SpotlightCard({
     <div
       ref={ref}
       onMouseMove={handleMove}
-      className={`group relative overflow-hidden rounded-2xl border border-[hsl(var(--border))/0.1] bg-[hsl(var(--background))/0.03] p-6 transition-colors hover:border-[hsl(var(--border))/0.2] ${className}`}
+      className={`group relative overflow-hidden rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-6 transition-colors hover:border-foreground/25 ${className}`}
       style={
         {
           "--spot-x": "50%",
@@ -44,7 +46,7 @@ export default function SpotlightCard({
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background:
-            "radial-gradient(400px circle at var(--spot-x) var(--spot-y), rgba(0,0,0,0.05), transparent 65%)",
+            "radial-gradient(400px circle at var(--spot-x) var(--spot-y), rgba(28,28,30,0.08), transparent 65%)",
         }}
       />
       <div className="relative">{children}</div>

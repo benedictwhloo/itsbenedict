@@ -24,7 +24,7 @@ export default function Nav() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[hsl(var(--background))/0.8] backdrop-blur-md border-b border-[hsl(var(--border))]"
+          ? "border-b border-foreground/10 bg-background/80 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
@@ -32,10 +32,10 @@ export default function Nav() {
         <a href="#top" className="text-sm font-semibold tracking-tight">
           {site.shortName}
         </a>
-        <ul className="hidden gap-8 text-sm text-[hsl(var(--muted-foreground))/0.7] sm:flex">
+        <ul className="hidden gap-8 text-sm text-foreground/70 sm:flex">
           {LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="transition-colors hover:text-[hsl(var(--foreground))]">
+              <a href={link.href} className="transition-colors hover:text-foreground">
                 {link.label}
               </a>
             </li>
@@ -43,7 +43,7 @@ export default function Nav() {
         </ul>
         <a
           href={`mailto:${site.email}`}
-          className="rounded-full border border-[hsl(var(--border))/0.15] px-4 py-1.5 text-sm transition-colors hover:border-[hsl(var(--border))]/0.4"
+          className="rounded-full border border-foreground/15 px-4 py-1.5 text-sm transition-colors hover:border-foreground/50"
         >
           Say hi
         </a>

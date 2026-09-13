@@ -15,20 +15,20 @@ export default function About() {
         {about.heading}
       </SplitReveal>
       <div className="mt-8 grid gap-12 sm:grid-cols-3">
-        <div className="space-y-5 text-[hsl(var(--muted-foreground))/0.7] sm:col-span-2">
+        <div className="space-y-5 text-foreground/70 sm:col-span-2">
           {about.paragraphs.map((p) => (
             <p key={p.slice(0, 24)}>{p}</p>
           ))}
         </div>
-        <div className="flex flex-col gap-6 border-l border-[hsl(var(--border))/0.1] pl-6">
+        <div className="flex flex-col gap-6 border-l border-foreground/10 pl-6">
           {STATS.map((s) => (
             <div key={s.label}>
               <CountUp
                 to={s.to}
                 suffix={s.suffix}
-                className="text-3xl font-semibold text-red-500"
+                className="text-3xl font-semibold text-accent"
               />
-              <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))/0.5]">{s.label}</p>
+              <p className="mt-1 text-sm text-foreground/50">{s.label}</p>
             </div>
           ))}
         </div>

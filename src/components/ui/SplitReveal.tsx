@@ -18,9 +18,13 @@ type SplitRevealProps = {
 };
 
 /**
- * Character/line reveal on scroll, in the spirit of React Bits' SplitText
- * component — built directly on GSAP's own SplitText + ScrollTrigger since
- * both ship free with GSAP now.
+ * Character reveal on scroll, in the spirit of React Bits' SplitText —
+ * built directly on GSAP's own SplitText + ScrollTrigger (both free).
+ *
+ * IMPORTANT: splitting waits for `document.fonts.ready`. SplitText measures
+ * line breaks at split time; if a webfont (BBH Bartle on the hero name)
+ * loads *after* the split, the pre-measured lines overflow and you get
+ * stray orphaned characters on their own line. Waiting for fonts fixes it.
  */
 export default function SplitReveal({
   children,
@@ -33,30 +37,44 @@ export default function SplitReveal({
 
   useGSAP(
     () => {
-      if (!ref.current) return;
-      const split = new SplitText(ref.current, { type: "lines,chars" });
+      const el = ref.current;
+      if (!el) return;
 
-      gsap.set(split.chars, { yPercent: 120, opacity: 0 });
+      let split: SplitText | null = null;
+      let tween: gsap.core.Tween | null = null;
+      let cancelled = false;
 
-      const tween = gsap.to(split.chars, {
-        yPercent: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power4.out",
-        stagger: 0.015,
-        delay,
-        scrollTrigger: immediate
-          ? undefined
-          : {
-              trigger: ref.current,
-              start: "top 85%",
-              once: true,
-            },
+      // Hide until fonts are ready so there's no flash of unsplit text.
+      gsap.set(el, { autoAlpha: 0 });
+
+      document.fonts.ready.then(() => {
+        if (cancelled) return;
+
+        split = new SplitText(el, {
+          type: "lines,chars",
+          linesClass: "split-line",
+        });
+
+        gsap.set(el, { autoAlpha: 1 });
+        gsap.set(split.chars, { yPercent: 120, opacity: 0 });
+
+        tween = gsap.to(split.chars, {
+          yPercent: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power4.out",
+          stagger: 0.015,
+          delay,
+          scrollTrigger: immediate
+            ? undefined
+            : { trigger: el, start: "top 85%", once: true },
+        });
       });
 
       return () => {
-        tween.kill();
-        split.revert();
+        cancelled = true;
+        tween?.kill();
+        split?.revert();
       };
     },
     { scope: ref, dependencies: [children] }
@@ -64,7 +82,7 @@ export default function SplitReveal({
 
   const Tag = as;
   return (
-    <Tag ref={ref as never} className={`overflow-hidden ${className}`}>
+    <Tag ref={ref as never} className={className}>
       {children}
     </Tag>
   );

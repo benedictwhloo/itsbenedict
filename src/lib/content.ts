@@ -82,8 +82,8 @@ export const projects: ProjectEntry[] = [
   {
     title: "This Site",
     blurb:
-      "A personal site built with Next.js, GSAP, Lenis, and Vanta.js — scroll-driven animation, a WebGL background, and interactive UI put together end to end.",
-    tags: ["Next.js", "GSAP", "Three.js"],
+      "A personal site built with Next.js, GSAP, and Lenis — scroll-driven animation, GSAP-animated geometric shapes, and interactive UI put together end to end.",
+    tags: ["Next.js", "GSAP", "Lenis"],
     href: "https://github.com/", // TODO: link the repo once it's pushed
   },
   // TODO: add more projects — case studies, side projects, whatever you want visible.

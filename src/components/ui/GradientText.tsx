@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 
 /**
- * Animated gradient text — React Bits' "GradientText" pattern, done in
- * pure CSS (background-clip + keyframe) so it costs nothing on the JS
- * thread.
+ * Animated text shimmer — React Bits' "GradientText" pattern, pure CSS
+ * (background-clip + keyframe). The gradient stays inside the grey family:
+ * foreground → accent → foreground. No hue shift, only lightness.
  */
 export default function GradientText({
   children,
@@ -14,7 +14,7 @@ export default function GradientText({
 }) {
   return (
     <span
-      className={`bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x bg-gradient-to-r from-[hsl(var(--foreground))] via-[hsl(var(--accent))] to-[hsl(var(--foreground))] ${className}`}
+      className={`animate-gradient-x bg-gradient-to-r from-foreground via-accent to-foreground bg-[length:200%_auto] bg-clip-text text-transparent ${className}`}
     >
       {children}
     </span>

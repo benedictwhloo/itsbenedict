@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { bbhBartle } from "@/lib/fonts";
 import SmoothScroll from "@/components/SmoothScroll";
 import { site } from "@/lib/content";
 import "./globals.css";
@@ -11,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${bbhBartle.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+    <html lang="en" className="h-full antialiased">
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
