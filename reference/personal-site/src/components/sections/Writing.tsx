@@ -15,7 +15,6 @@ export default function Writing() {
               <h3 className="font-medium">{post.title}</h3>
               <p className="text-sm text-foreground/50">{post.excerpt}</p>
             </div>
-
             <span className="shrink-0 pl-4 text-sm text-foreground/40">{post.date}</span>
           </div>
         ))}
